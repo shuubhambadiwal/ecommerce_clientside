@@ -14,9 +14,15 @@ import ShoppingListing from "./pages/shopping-veiw/listing";
 import ShoppingCheckout from "./pages/shopping-veiw/checkout";
 import ShoppingAccount from "./pages/shopping-veiw/account";
 import CheckAuth from "./components/common/check-auth";
+import UnauthPage from "./pages/unauth-page";
 
 function App() {
+  
   const isAuthenticated = false;
+  // const user = {
+  //   name : 'Shubham',
+  //   role : 'admin',
+  // };
   const user = null;
 
   return (
@@ -56,7 +62,8 @@ function App() {
           <Route path="checkout" element={<ShoppingCheckout />} />
           <Route path="account" element={<ShoppingAccount />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="/unauth-page" element={<UnauthPage/>} />
+
       </Routes>
     </div>
   );
