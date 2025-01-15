@@ -8,22 +8,21 @@ import AdminProducts from "./pages/admin-veiw/products";
 import AdminOrders from "./pages/admin-veiw/orders";
 import AdminFeatures from "./pages/admin-veiw/features";
 import ShoppingLayout from "./components/shopping-veiw/layout";
-import NotFound from "./pages/not-found";
 import ShoppingHome from "./pages/shopping-veiw/home";
 import ShoppingListing from "./pages/shopping-veiw/listing";
 import ShoppingCheckout from "./pages/shopping-veiw/checkout";
 import ShoppingAccount from "./pages/shopping-veiw/account";
 import CheckAuth from "./components/common/check-auth";
 import UnauthPage from "./pages/unauth-page";
+// import NotFound from "./pages/not-found";
 
 function App() {
-  
   const isAuthenticated = false;
-  // const user = {
-  //   name : 'Shubham',
-  //   role : 'admin',
-  // };
-  const user = null;
+  const user = {
+    name : 'Shubham',
+    role : 'shop',
+  };
+  // const user = null;
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
@@ -63,7 +62,6 @@ function App() {
           <Route path="account" element={<ShoppingAccount />} />
         </Route>
         <Route path="/unauth-page" element={<UnauthPage/>} />
-
       </Routes>
     </div>
   );
