@@ -25,6 +25,20 @@ export const loginUser = createAsyncThunk('/auth/login',
     } 
   );
 
+export const checkAuth = createAsyncThunk('/auth/checkauth',
+    async(formData) =>{
+      const response = await axios.get('http://localhost:5001/api/auth/check-auth',
+    {
+          withCredentials : true,
+          headers: {
+            'Cache-Control': 'no-store ,no-cache, must-revalidate, proxy-revalidate',
+            Expires: '0'
+          }
+      }
+    );
+      return response.data;
+    } 
+  )
 
 const authSlice = createSlice({
     name : 'auth',
@@ -50,11 +64,23 @@ const authSlice = createSlice({
             state.isLoading = false;
             state.user = !action.payload.user ? null : action.payload.user;
             state.isAuthenticated = !action.payload.user ? false : true;
+            // state.isAuthenticated = action.payload.success;
         }).addCase(loginUser.rejected, (state)=> {
             state.isLoading = false;
             state.user = null;
             state.isAuthenticated = false;
-        });   
+        }).addCase(checkAuth.pending, (state)=> {
+            state.isLoading = true;
+        }).addCase(checkAuth.fulfilled, (state,action)=> {
+            state.isLoading = false;
+            state.user = !action.payload.user ? null : action.payload.user;
+            state.isAuthenticated = action.payload.success;
+            // state.isAuthenticated = !action.payload.user ? false : true;
+        }).addCase(checkAuth.rejected, (state)=> {
+            state.isLoading = false;
+            state.user = null;
+            state.isAuthenticated = false;
+        });     
     }
 });
 

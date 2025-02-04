@@ -14,12 +14,19 @@ import ShoppingCheckout from "./pages/shopping-veiw/checkout";
 import ShoppingAccount from "./pages/shopping-veiw/account";
 import CheckAuth from "./components/common/check-auth";
 import UnauthPage from "./pages/unauth-page";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { checkAuth } from "./store/auth-slice";
+import { useEffect } from "react";
 // import NotFound from "./pages/not-found";
 
 function App() {
   // const user = null;
   const{user, isAuthenticated} = useSelector(state => state.auth);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
