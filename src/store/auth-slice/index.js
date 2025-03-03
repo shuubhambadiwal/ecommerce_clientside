@@ -13,7 +13,7 @@ export const registerUser = createAsyncThunk('/auth/register',
     const response = await axios.post('http://localhost:5001/api/auth/register',formData,{
         withCredentials : true
     });
-    return response.data;
+    return response.data; 
   }  
 )
 export const loginUser = createAsyncThunk('/auth/login',
