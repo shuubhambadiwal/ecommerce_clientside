@@ -12,7 +12,7 @@ const initialState = {
     userName: '',
     email: '',
     password: ''
-  };
+  }; 
 
 function AuthRegister() {
     const [formData, setFormData] = useState(initialState);
