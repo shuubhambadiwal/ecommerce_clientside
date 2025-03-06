@@ -49,7 +49,7 @@ function AdminSideBar({open, setOpen}) {
                 <SheetContent side="left" className="w-64">
                     <div className="flex flex-col h-full">
                       <SheetHeader className="border-b">
-                          <SheetTitle >
+                          <SheetTitle className="mt-5">
                             <div onClick={()=>navigate('/admin/dashboard')} className="flex gap-2 cursor-pointer"> 
                               <ChartNoAxesCombined size={30}/>
                               <h1 className="text-2xl font-extrabold">Admin Panel</h1>
