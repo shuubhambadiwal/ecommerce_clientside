@@ -10,7 +10,7 @@ export const getFeatureImages = createAsyncThunk(
   "/order/getFeatureImages",
   async () => {
     const response = await axios.get(
-      `http://ecomser.vercel.app/api/common/feature/get`
+      `https://ecomser.vercel.app/api/common/feature/get`
     );
 
     return response.data;
@@ -21,7 +21,7 @@ export const addFeatureImage = createAsyncThunk(
   "/order/addFeatureImage",
   async (image) => {
     const response = await axios.post(
-      `http://ecomser.vercel.app/api/common/feature/add`,
+      `https://ecomser.vercel.app/api/common/feature/add`,
       { image }
     );
 
