@@ -1,15 +1,19 @@
-/* eslint-disable no-undef */
-import path from "path"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: '/', 
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": "/src",
+      "@components": "/src/components",
+      "@layouts": "/src/layouts",
+      "@pages": "/src/pages",
+      "@assets": "/src/assets",
+      "@lib": "/src/lib",
+      "@hooks": "/src/hooks",
+      "@store": "/src/store",
     },
   },
-})
-
+});
